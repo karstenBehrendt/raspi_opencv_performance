@@ -1,3 +1,18 @@
+/**
+	This basic script's purpose is to check for what purposes I can use the 
+	raspberry pi with its camera module or some other simple camera. 
+	
+	It shows how many frames a seconds the pi can grab from the camera, 
+	when using OpenCV. Results will be posted in the README. 
+
+	I hope, that since I did it here, you don't have to. 
+	
+	Karsten Behrendt, 2014-05-11
+
+
+*/
+
+
 #include <iostream>
 
 #include <opencv2/core/core.hpp>
@@ -11,7 +26,12 @@ using namespace std;
 using namespace cv;
 
 
+/**
+	Starts webcam on specified camIndex and grabs frames with a specified resolution. 
+	If enabled, it also performs some small actions on each image. 
+	It then returns how many frames the pi is able to process given that resolution. 
 
+*/
 double getFPS(int camIndex, int width, int height, int numFrames, bool extraWork)
 {
 	VideoCapture cap(camIndex); 
@@ -75,6 +95,11 @@ double getFPS(int camIndex, int width, int height, int numFrames, bool extraWork
 }
 
 
+
+/**
+	Tests how many frames the pi can grab for various resolutions and in my
+	case, on two different cameras. 
+*/
 int main()
 {
 	int raspicamIndex = 1;
@@ -99,7 +124,7 @@ int main()
 			cout << tab << "Testing frame rate for RaspiCam: " << endl; 
 		}
 		
-		for(int i=1; i<3; i++)
+		for(int i=1; i<4; i++)
 		{
 			if( j != raspicamIndex && (i > 4))
 			{
