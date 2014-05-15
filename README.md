@@ -1,6 +1,6 @@
-What to expect using a Raspberry Pi with OpenCV for analyzing images from a webcam. 
+##### What to expect using a Raspberry Pi with OpenCV for analyzing images from a webcam. 
 
---> The short answer is, you can do real time computer vision with OpenCV for very low resolution (320*240) images and with (more than likely) less then 10fps. You may want to look into the Pi's gpu as it offers way more computing power than its cpu. You can find detailed results below. 
+######The short answer is, you can do real time computer vision with OpenCV for very low resolution (320x240) images and with (more than likely) less then 10fps. You may want to look into the Pi's gpu as it offers way more computing power than its cpu. You can find detailed results below. 
 
 
 I wanted to check what kind of computer vision tasks can be done on a Raspberry Pi in real-time. I tested OpenCV with a standard/cheap USB camera (Logitech C270) and the Raspberry Pi Camera Module (specifically the RaspiCam Noir, but that does not make a difference). 
@@ -9,6 +9,7 @@ First of all, getting the RaspiCam to work with OpenCV is possible in two ways. 
 
 Now about the performance: I tested this script on Raspbian 3.12.18, with medium and without overclocking on May 14, 2014 on a standard Raspberry Pi Model B. Optimizations are set to -O3 and Wl,-O3 which greatly influence the performance. 
 
+```
 -------------------------------------------------------------------
 Just capturing frames from the webcams, medium overclocking (Pi@900MHz). 
    Testing frame rate for RaspiCam: 
@@ -42,10 +43,6 @@ With some very basic operations on each image.
       1.98 frames per second with an image size of 960x720
       1.06 frames per second with an image size of 1280x960
 
-
-
-
-
 ------------------------------------------------------------------
 Same tests without overclocking (Pi@700MHz). 
 Just capturing frames: 
@@ -77,6 +74,7 @@ Basic operations:
       3.47 frames per second with an image size of 640x480
       1.65 frames per second with an image size of 960x720
       0.91 frames per second with an image size of 1280x960
+```
 
 2014-05-15, Karsten Behrendt
 
